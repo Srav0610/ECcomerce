@@ -1,5 +1,7 @@
 package com.NIKEE_Registration01.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,6 +31,12 @@ public class RegistrationController {
 	public ResponseEntity<Registration> getuser(@PathVariable("userName") String userName) {
 	
 		return ResponseEntity.ok(rs.findById(userName));
+		
+	}
+	@GetMapping("/getall")
+	public ResponseEntity<List<Registration>> findAll() {
+	
+		return ResponseEntity.ok(rs.findAll());
 		
 	}
 	
